@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Simple JS Evaluator</title>
+  <script src='script.js'> </script>
+  <script>
+
+    var start = function()
+    {
+      var userInput = document.getElementById("equation").value;
+      var url = "./eval?code=" + encodeURIComponent(userInput);
+      console.log(url);
+      var callback = function(data){
+        var res = data;
+        document.getElementById("result").innerHTML = "Result is: " + res;
+        document.getElementById("result").style.fontSize = "50px";
+      }
+      loadURL(url, callback);
+    }
+  </script>
+  <style>
+      
+  p
+  {
+      text-align: center;
+  }
+  </style>
+</head>
+
+<body style='background-color:gray'>
+    <h1>Daniel Renteria Assignment 1: Simple JS Evaluator</h1>
+    <h3>This is a simple evaluator! Enter some equations with defined variables, hit the calculate button, and watch it work!<br>
+        <ul>
+            <li>
+                The text block could be rezised if dragged from the bottom right corner
+            </li>
+            <li>
+                To view assignment info, click <a href='AME470Assignment1.pdf'>here!</a>
+            </li>
+        </ul>
+    </h3>
+    <textarea autofocus rows='20' cols='50' id='equation'> </textarea>
+    <a href='javascript:start()' style='color: red; background: gray; border: 1px solid; border-radius: 5px; padding: 10px;text-decoration: none'>Calculate</a>
+    <p id='result' class='para'> </p>
+</body>
+</html>
